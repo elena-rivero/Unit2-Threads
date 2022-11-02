@@ -31,6 +31,8 @@ public class RatonRunnable implements Runnable {
 		RatonRunnable pinky = new RatonRunnable("Pinky", 3);
 		RatonRunnable mickey = new RatonRunnable("Mickey", 6);
 		
+		// Los objetos Runnable deben envolverse en objetos Thread para ser arrancados por start()
+		// El método start pertenece a Thread, de ahí la envoltura del objeto.
 		new Thread(fievel).start();
 		new Thread(jerry).start();
 		new Thread(pinky).start();
