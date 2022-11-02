@@ -1,10 +1,10 @@
 package example1;
 
-public class RatonConcurrente extends Thread {
+public class RatonRunnable implements Runnable {
 	private String nombre;
 	private int tiempoAlimentacion;
 	
-	public RatonConcurrente(String nombre, int tiempoAlimentacion) {
+	public RatonRunnable(String nombre, int tiempoAlimentacion) {
 		super();
 		this.nombre = nombre;
 		this.tiempoAlimentacion = tiempoAlimentacion;
@@ -26,16 +26,15 @@ public class RatonConcurrente extends Thread {
 	}
 	
 	public static void main(String[] args) {
-		RatonConcurrente fievel = new RatonConcurrente("Fievel", 4);
-		RatonConcurrente jerry = new RatonConcurrente("Jerry", 5);
-		RatonConcurrente pinky = new RatonConcurrente("Pinky", 3);
-		RatonConcurrente mickey = new RatonConcurrente("Mickey", 6);
+		RatonRunnable fievel = new RatonRunnable("Fievel", 4);
+		RatonRunnable jerry = new RatonRunnable("Jerry", 5);
+		RatonRunnable pinky = new RatonRunnable("Pinky", 3);
+		RatonRunnable mickey = new RatonRunnable("Mickey", 6);
 		
-		// El método start() pertenece a la clase Thread. Por dentro, llama al método run()
-		fievel.start(); 
-		jerry.start();
-		pinky.start();
-		mickey.start();
+		new Thread(fievel).start();
+		new Thread(jerry).start();
+		new Thread(pinky).start();
+		new Thread(mickey).start();
 	}
 
 }
