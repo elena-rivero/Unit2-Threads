@@ -27,5 +27,10 @@ public class States {
 			System.out.println(estado);
 		}
 	}
+	
+	// ¿Qué ocurriría si quitamos la llamada a Sleep dentro del código del hilo? 
+	// ¿Qué diferencias se aprecian en los estados por los que ha transitado el hilo?
+	// ¿A qué se deben dichas diferencias?
+	
 
 }
