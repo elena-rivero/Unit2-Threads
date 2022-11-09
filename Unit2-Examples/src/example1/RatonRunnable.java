@@ -11,11 +11,13 @@ public class RatonRunnable implements Runnable {
 	}
 
 	public void comer() {
-		
+		try {
 			System.out.printf("El ratón %s ha comenzado a alimentarse%n", nombre);
-//			Thread.sleep(tiempoAlimentacion * 1000);
+			Thread.sleep(tiempoAlimentacion * 1000);
 			System.out.printf("El ratón %s ha terminado de alimentarse%n", nombre);
-	
+		} catch(InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
