@@ -12,6 +12,7 @@ public class States {
 		Thread h = new Thread(mickey);
 		estadosHilo.add(h.getState());
 		h.start();
+		System.out.println(h.getName());
 		while(h.getState()!=Thread.State.TERMINATED) {
 			if(!estadosHilo.contains(h.getState())) {
 				estadosHilo.add(h.getState());
