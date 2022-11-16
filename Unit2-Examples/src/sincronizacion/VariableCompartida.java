@@ -13,9 +13,14 @@ public class VariableCompartida extends Thread {
 	@Override
 	public void run() {
 		for(int i=0; i<1000; i++) {
-			contador++;
+			incremento();
 		}
 	}
+	
+	public static synchronized void incremento() {
+		contador++;
+	}
+	
 	public static void main(String[] args) {
 		for(int i=0; i<1000; i++) {
 			new VariableCompartida().start();
