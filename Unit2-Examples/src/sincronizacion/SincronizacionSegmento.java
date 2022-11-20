@@ -6,6 +6,10 @@ package sincronizacion;
  * ejecutar varios métodos a la vez, porque en este caso los métodos no están
  * declarados como synchronized.
  * 
+ * Se pueden ejecutar los dos métodos a la vez también porque el objeto de
+ * bloqueo es distinto, si fuese el mismo, entonces sólo se podría ejecutar un
+ * método cada vez.
+ * 
  */
 public class SincronizacionSegmento extends Thread {
 	int id;
@@ -29,6 +33,7 @@ public class SincronizacionSegmento extends Thread {
 		}
 	}
 
+	//
 	public void metodo2() {
 		synchronized (bloqueo2) {
 			System.out.println("Comienzo del método 2 del hilo " + id);
