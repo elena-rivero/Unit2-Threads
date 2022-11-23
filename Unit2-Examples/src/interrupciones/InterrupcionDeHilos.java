@@ -71,7 +71,5 @@ public class InterrupcionDeHilos {
 		} catch (InterruptedException ex) {
 			System.out.println("Hilo principal interrumpido.");
 		}
-
 	}
-
 }

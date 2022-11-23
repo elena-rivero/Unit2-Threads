@@ -25,7 +25,7 @@ public class ComparticionInstanciaUnica extends Thread {
 		ciu1.setName("Hilo 1");
 		ciu1.start();
 		
-		Thread.sleep(100);
+		//Thread.sleep(100);
 		ciu2.setName("Hilo 2");
 		ciu2.start();
 	}

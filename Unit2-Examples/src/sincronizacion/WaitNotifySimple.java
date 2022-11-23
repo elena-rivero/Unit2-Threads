@@ -9,7 +9,7 @@ package sincronizacion;
  */
 public class WaitNotifySimple implements Runnable {
 
-	private volatile boolean ejecutandoMetodo1 = false;
+	private static volatile boolean ejecutandoMetodo1 = false;
 
 	public synchronized void metodo1() {
 		for (int i = 0; i < 10; i++) {
@@ -42,9 +42,10 @@ public class WaitNotifySimple implements Runnable {
 	}
 
 	public static void main(String[] args) {
-		WaitNotifySimple wns = new WaitNotifySimple();
-		new Thread(wns).start();
-		new Thread(wns).start();
+		WaitNotifySimple wns1 = new WaitNotifySimple();
+		WaitNotifySimple wns2 = new WaitNotifySimple();
+		new Thread(wns1).start();
+		new Thread(wns2).start();
 	}
 
 }
