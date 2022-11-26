@@ -8,21 +8,22 @@ public class EjemploWaitNotify implements Runnable {
 	@Override
 	public void run() {
 		try {
-			while (!comido) {
-				synchronized (t) {
-					if (!t.isEnPosesion()) {
-						t.setEnPosesion(true);
-						System.out.println(Thread.currentThread().getName() + " está comiendo");
-						Thread.sleep(1000);
-						System.out.println(Thread.currentThread().getName() + " ha terminado de comer");
-						comido = true;
-						t.setEnPosesion(false);
-						t.notifyAll();
-					} else {
-						t.wait();
-					}
+
+			synchronized (t) {
+				while (!comido && t.isEnPosesion()) {
+					t.wait();
 				}
+
+				t.setEnPosesion(true);
+				System.out.println(Thread.currentThread().getName() + " está comiendo");
+				Thread.sleep(1000);
+				System.out.println(Thread.currentThread().getName() + " ha terminado de comer");
+				comido = true;
+				t.setEnPosesion(false);
+				t.notifyAll();
+
 			}
+
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -35,7 +36,6 @@ public class EjemploWaitNotify implements Runnable {
 
 			Thread hilo = new Thread(ewn);
 			hilo.setName("Comensal " + i);
-
 			hilo.start();
 		}
 	}
