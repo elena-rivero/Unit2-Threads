@@ -24,6 +24,7 @@ public class Impresor extends Thread {
 			if(acumulador==600) {
 				ajustaAcumulador();
 			}
+			System.out.println(currentThread().getName());
 			System.out.println("contador: " + contador);
 			System.out.println("acumulador: " + acumulador);
 		}
@@ -32,8 +33,8 @@ public class Impresor extends Thread {
 	public static void main(String[] args) {
 		for(int i=0; i<10; i++) {
 			Impresor imp = new Impresor();
+			imp.setName("Hilo"+i);
 			imp.start();
-			
 		}
 		
 	}

@@ -11,17 +11,17 @@ public class SemaforoBasico implements Runnable {
 		try {
 			semaforo.acquire();
 			System.out.println("Paso 1");
-			Thread.sleep(1000);
+//			Thread.sleep(1000);
 			semaforo.release();
 			
 			semaforo.acquire();
 			System.out.println("Paso 2");
-			Thread.sleep(1000);
+//			Thread.sleep(1000);
 			semaforo.release();
 			
 			semaforo.acquire();
 			System.out.println("Paso 3");
-			Thread.sleep(1000);			
+//			Thread.sleep(1000);			
 			semaforo.release();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -34,5 +34,4 @@ public class SemaforoBasico implements Runnable {
 			new Thread(sb).start();
 		}
 	}
-
 }

@@ -31,7 +31,7 @@ public class JoinMain extends Thread {
 			hilo1.join();
 			hilo2.join();
 			System.out.println("Se ha terminado la ejecución de los dos hilos");
-		} catch (InterruptedException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
